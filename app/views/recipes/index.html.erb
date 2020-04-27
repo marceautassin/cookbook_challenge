@@ -1,5 +1,46 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
-<% @recipes.each do |recipe| %>
-<%= recipe.name %>
-<% end %>
+<header class='hero'>
+  <section class="jumbotron">
+    <div class="container mastinfo">
+      <div class="display-4">Trouver une recette ou un idée</div>
+      <div class="text-center">
+          <%= form_tag recipes_path, method: :get do %>
+            <div class="d-flex justify-content-center align-items-center" style="position: relative;">
+              <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Recette, ingrédient...",
+              autocomplete:"off"
+              %>
+              <%= button_tag type: 'submit', class: "bg-grey p-1 text-warning loupe" do %>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </section>
+</header>
+
+<main>
+<section>
+    <div class="container">
+      <div class="row">
+      </div>
+      <br>
+      <div class="row bg-light p-3">
+        <% @recipes.each do |recipe| %>
+          <div class="col">
+            <div class="card">
+              <%# <img src="http://lorempixel.com/1000/500" alt="" class="card-img-top"> %>
+              <div class="card-body">
+                <h4 class="card-title"><%= recipe.name %></h4>
+                <p class="card-text">recipe.desc</p>
+                <%= link_to "Get it!", recipe_path(recipe), class:"btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>
