@@ -4,6 +4,12 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+
+    if params[:query].present?
+      @recipes = @recipes.global_search(params[:query])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -26,7 +32,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(params_recipe)
+    @recipe.update_atributes(params_recipe)
     if @recipe.save
       redirect_to @recipe
     else
@@ -45,6 +51,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
   def params_recipe
-    params.require(:recipe).permit(:name, :desc, :time_prep, :difficulty)
+    params.require(:recipe).permit(:name, :desc, :time_prep, :difficulty, doses_attributes: [:id, :type_dose, :number, :ingredient_id, :_destroy])
   end
 end

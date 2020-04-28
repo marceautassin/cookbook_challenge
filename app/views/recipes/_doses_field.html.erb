@@ -1,0 +1,6 @@
+<div class="nested-fields">
+  <%= f.input :type_dose %>
+  <%= f.input :number %>
+  <%= f.association :ingredient %>
+  <%= link_to_remove_association "retirer cet ingrédient", f %>
+</div>
