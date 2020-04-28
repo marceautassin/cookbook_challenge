@@ -1,0 +1,11 @@
+.button-add {
+  position: absolute;
+  top: 65vh;
+  right: 80px;
+  z-index: 100;
+}
+
+.button-add:hover {
+  color: $orange;
+  outline: none;
+}

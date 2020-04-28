@@ -1,2 +1,18 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container mt-5">
+  <div class="card bg-light my-2 mx-2 p-5">
+    <div class="d-flex justify-content-between">
+      <div class="flex-grow-1 ">
+        <div class="text-center border-bottom mb-3">
+          <h2><%= @recipe.name %></h2>
+        </div>
+        <% @recipe.doses.each do |dose| %>
+    <div class="d-flex justify-content-between mt-4 border-bottom ">
+          <p><%= dose.type_dose %> </p>
+          <p><%= dose.ingredient.name %> </p>
+            <i> <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %> </i>
+    </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

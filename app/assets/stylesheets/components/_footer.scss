@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100px;
+
+}
+
+.footer a {
+  color: #333;
+}
+
+.footer a:hover {
+  color: #FF6F61;
+}
+
+.social>* {
+  margin-right: 30px;
+}

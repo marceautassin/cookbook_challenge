@@ -30,11 +30,11 @@
       <div class="row bg-light p-3">
         <% @recipes.each do |recipe| %>
           <div class="col">
-            <div class="card">
+            <div class="card rounded">
               <%# <img src="http://lorempixel.com/1000/500" alt="" class="card-img-top"> %>
               <div class="card-body">
                 <h4 class="card-title"><%= recipe.name %></h4>
-                <p class="card-text">recipe.desc</p>
+                <p class="card-text"><%= recipe.desc %></p>
                 <%= link_to "Get it!", recipe_path(recipe), class:"btn btn-success" %>
               </div>
             </div>

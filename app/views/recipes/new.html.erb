@@ -1,2 +1,8 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<div class="container">
+  <h2 class="my-4">Nouvelle recette</h2>
+  <%= simple_form_for @recipe do |f| %>
+    <%= f.input :name %>
+    <%= f.input :desc %>
+    <%= f.submit "Ajouter", class: "btn btn-primary" %>
+  <% end %>
+</div>
