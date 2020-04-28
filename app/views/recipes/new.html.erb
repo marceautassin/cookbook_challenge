@@ -3,11 +3,16 @@
   Nom de la recette: <%= f.text_field :name %>
   Temps de préparation: <%= f.text_field :time_prep %>
   Difficulté: <%= f.text_field :difficulty %>
-  <div id="doses">
+  <h3>Tasks</h3>
+  <div id='tasks'>
     <%= f.simple_fields_for :doses, Dose.new do |dose| %>
-      <!-- Task: <%#= task.text_field :name %> -->
-      <%= render 'doses_field', f: dose %>
+      <%= render 'dose_fields', f: dose %>
+    <div class='links'>
+      <%= link_to_add_association 'add task', f, :doses,
+    partial: 'dose_fields' %>
+    </div>
     <% end %>
   </div>
-  <%= f.submit 'Create Project' %>
+  <%= f.submit 'Save' %>
 <% end %>
+

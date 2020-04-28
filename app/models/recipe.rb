@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :doses
 
    accepts_nested_attributes_for :doses,
+                                reject_if: proc { |attributes| attributes[:type_dose].blank? },
                                 allow_destroy: true
 
   include PgSearch::Model
